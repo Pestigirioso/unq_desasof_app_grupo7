@@ -44,7 +44,6 @@ services:
 
   grafana-grupo7:
     image: grafana/grafana-oss:latest
-    container_name: grafana
     ports:
       - "4000:3000"
     volumes:
