@@ -1,0 +1,77 @@
+services:
+  backend-grupo7:
+    build:
+      context: ./unq_desasof_backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./unq_desasof_backend:/app
+    environment:
+      - ENV=production
+      - DATABASE_URL=postgresql://root:root@db-grupo7:5432/dbstc
+    depends_on:
+      - db-grupo7
+    networks:
+      - app-network
+
+  db-grupo7:
+    image: postgres:14-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./unq_desasof_backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./unq_desasof_backend/postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=root
+      - POSTGRES_DB=dbstc
+    networks:
+      - app-network
+
+  prometheus-grupo7:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./unq_desasof_backend/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./unq_desasof_backend/data:/prometheus
+    restart: unless-stopped
+    networks:
+      - app-network
+    depends_on:
+      - backend-grupo7
+
+  grafana-grupo7:
+    image: grafana/grafana-oss:latest
+    container_name: grafana
+    ports:
+      - "4000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    restart: unless-stopped
+    #password: root123
+    networks:
+      - app-network
+    depends_on:
+      - backend-grupo7
+
+  frontend-grupo7:
+    build:
+      context: ./unq_desasof_frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend-grupo7
+    networks:
+      - app-network
+    environment:
+      - VITE_BACKEND_URL=http://localhost:8000
+
+networks:
+  app-network:
+
+volumes:
+  grafana-data:
+    driver: local
