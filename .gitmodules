@@ -1,0 +1,6 @@
+[submodule "unq_desasof_backend"]
+	path = unq_desasof_backend
+	url = https://github.com/JuanIgnGarcia/unq_desasof_backend
+[submodule "unq_desasof_frontend"]
+	path = unq_desasof_frontend
+	url = https://github.com/JuanIgnGarcia/unq_desasof_frontend
