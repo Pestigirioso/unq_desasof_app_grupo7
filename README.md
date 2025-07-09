@@ -29,7 +29,7 @@ REFRESH_TOKEN = <El refresh token>
 1. Ir a la sección Dashboards
 2. Click en el menú desplegable "New"
 3. Seleccionar opción "Import"
-4. Arrastrar el archivo "Grafana-dashboard.json" que se encuentra en la raíz de este proyecto.
+4. Arrastrar el archivo "dashboard-grafana.json" que se encuentra en la raíz de este proyecto.
 
 ## Tecnologías utilizadas
 
