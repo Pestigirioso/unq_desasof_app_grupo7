@@ -2,7 +2,7 @@
 
 ## Para ejecutar la aplicación
 
-1. Clonar el repo y sus submódulos: `git clone --recurse-submodules https://github.com/Pestigirioso/unq_desasof_app_grupo7`
+1. Clonar el repo: `git clone https://github.com/Pestigirioso/unq_desasof_app_grupo7`
 2. Acceder a la ruta del repositorio: `cd unq_desasof_app_grupo7`
 3. En la ruta unq_desasof_backend crear un archivo .env que contendrá lo siguiente:
 
