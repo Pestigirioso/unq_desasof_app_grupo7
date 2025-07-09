@@ -1,8 +1,6 @@
 services:
   backend-grupo7:
-    build:
-      context: ./unq_desasof_backend
-      dockerfile: Dockerfile
+    image: toporu/unq_desasof:latest
     ports:
       - "8000:8000"
     volumes:
@@ -56,9 +54,7 @@ services:
       - backend-grupo7
 
   frontend-grupo7:
-    build:
-      context: ./unq_desasof_frontend
-      dockerfile: Dockerfile
+    image: toporu/unq_desasof_frontend:latest
     ports:
       - "3000:3000"
     depends_on:

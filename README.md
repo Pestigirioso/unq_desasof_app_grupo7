@@ -23,6 +23,14 @@ REFRESH_TOKEN = <El refresh token>
 - Swagger: http://localhost:8000/docs#/
 - Grafana: http://localhost:4000/login
 
+### Instrucciones para usar Grafana
+
+0. Para acceder, el usuario y contraseña es "admin". Luego del primer login, se le va a requerir al usuario que cambie la contraseña.
+1. Ir a la sección Dashboards
+2. Click en el menú desplegable "New"
+3. Seleccionar opción "Import"
+4. Arrastrar el archivo "Grafana-dashboard.json" que se encuentra en la raíz de este proyecto.
+
 ## Tecnologías utilizadas
 
 ### Backend:
